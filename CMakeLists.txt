@@ -16,7 +16,7 @@ project ("maya")
 
 
 # TODO remove hardcoded paths
-include_directories(c:/db/libs/raylib/build/raylib/include)
+include_directories(c:/db/libs/raylib/build/raylib/include c:/db/libs/raygui/src)
 
 set(RAYLIB_DEBUG c:/db/libs/raylib/build/raylib/Debug/raylib.lib)
 set(RAYLIB_RELEASE c:/db/libs/raylib/build/raylib/Release/raylib.lib)
