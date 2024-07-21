@@ -22,6 +22,15 @@ set(RAYLIB_RELEASE c:/db/libs/raylib/build/raylib/Release/raylib.lib)
 set(GLFW_DEBUG C:/db/libs/raylib/build/raylib/external/glfw/src/Debug/glfw3.lib)
 set(GLFW_RELEASE C:/db/libs/raylib/build/raylib/external/glfw/src/Release/glfw3.lib)
 
+set(ICON_SOURCE "${CMAKE_SOURCE_DIR}/assets/icons/icon.png")
+set(ICON_DESTINATION "${CMAKE_BINARY_DIR}/assets/icons")
+
+# Ensure the destination directory exists
+file(MAKE_DIRECTORY ${ICON_DESTINATION})
+
+# Copy the icon to the destination directory
+file(COPY ${ICON_SOURCE} DESTINATION ${ICON_DESTINATION})
+
 
 add_executable (maya "maya.cpp")
 
