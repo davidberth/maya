@@ -1,43 +1,24 @@
-﻿
+﻿#include <iostream>
 #include "raylib.h"
 
+import window;
+import renderer;
 
 int main(void)
 {
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    const int screenWidth = 1200;
-    const int screenHeight = 600;
 
-#ifdef NDEBUG
-    SetTraceLogLevel(LOG_ERROR);
-#endif
+    init_window();
 
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
 
-    SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
-
-    // Main game loop
-    while (!WindowShouldClose())    // Detect window close button or ESC key
+    while (!window_should_close())    // Detect window close button or ESC key
     {
-        //----------------------------------------------------------------------------------
-        // Draw
-        //----------------------------------------------------------------------------------
-        BeginDrawing();
+        window_event();
+        frame();
 
-        ClearBackground(DARKBLUE);
-
-        DrawText("Congrats! You created your first window!", 190, 200, 40, LIGHTGRAY);
-
-        EndDrawing();
-        //----------------------------------------------------------------------------------
     }
 
-    // De-Initialization
-    //--------------------------------------------------------------------------------------
-    CloseWindow();        // Close window and OpenGL context
-    //--------------------------------------------------------------------------------------
-
+    
+    close_window();        
+    
     return 0;
 }

@@ -14,7 +14,6 @@ endif()
 
 project ("maya")
 
-
 # TODO remove hardcoded paths
 include_directories(c:/db/libs/raylib/build/raylib/include c:/db/libs/raygui/src)
 
@@ -24,7 +23,9 @@ set(GLFW_DEBUG C:/db/libs/raylib/build/raylib/external/glfw/src/Debug/glfw3.lib)
 set(GLFW_RELEASE C:/db/libs/raylib/build/raylib/external/glfw/src/Release/glfw3.lib)
 
 
-add_executable (maya "maya.cpp" )
+add_executable (maya "maya.cpp")
+
+target_sources(maya PRIVATE FILE_SET CXX_MODULES FILES "renderer.ixx" "window.ixx")
 
 # TODO look into why winmm is needed (not multiplatform).
 target_link_libraries(${PROJECT_NAME} debug ${RAYLIB_DEBUG} winmm.lib optimized ${RAYLIB_RELEASE} winmm.lib)
